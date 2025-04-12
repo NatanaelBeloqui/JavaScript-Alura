@@ -1,3 +1,5 @@
+console.log('');
+
 const matriz = []
 let contador = 1;
 
@@ -12,4 +14,5 @@ for(let i = 0; i < 3; i++) { // Coluna
 }
 
 console.log('');
-console.log(matriz[1][2]);
+console.log(`O elemento na segunda linha e terceira coluna da lista bidimensional matriz é ${matriz[1][2]}`);
+console.log('');
