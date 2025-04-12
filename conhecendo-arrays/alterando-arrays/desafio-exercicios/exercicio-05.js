@@ -7,9 +7,9 @@
 const matriz = []
 let contador = 1;
 
-for(let i = 0; i < 3; i++) {
+for(let i = 0; i < 3; i++) { // Coluna
     let linha = []
-    for(let j = 0; j < 3; j++) {
+    for(let j = 0; j < 3; j++) { // Linha
         linha.push(contador);
         contador ++;
     }
