@@ -12,9 +12,8 @@ const calculadora = {
         return b !== 0 ? a / b : null;
     },
     calcularMedia: function(array) {
-        let total = 0;
-        array.forEach((elemento) => total += elemento);
-        return total / array.length;
+        const soma = array.reduce((total, numero) => total + numero, 0);
+        return soma / array.length;
     }
 }
 
