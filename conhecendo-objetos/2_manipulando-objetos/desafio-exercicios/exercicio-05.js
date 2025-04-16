@@ -12,7 +12,7 @@ const contaBancaria = {
         }
     },
     sacar: function (valor) {
-        if (valor >= this.saldo) {
+        if (valor <= this.saldo) {
             this.saldo -= valor;
             return console.log(`R$${valor} retirado do saldo. Novo saldo: R$${this.saldo}.`);
         } else {
@@ -27,5 +27,13 @@ const cliente = {
 }
 
 function mostrarSaldo (cliente) {
-    console.log(`O saldo do ${cliente} é ${cliente.conta.saldo}`)
+    console.log(`O saldo do ${cliente.nome} é ${cliente.conta.saldo}`)
 }
+
+console.log(cliente.conta.saldo);
+cliente.conta.depositar(50);
+console.log(cliente.conta.saldo);
+cliente.conta.sacar(50)
+console.log(cliente.conta.saldo);
+
+mostrarSaldo(cliente);
