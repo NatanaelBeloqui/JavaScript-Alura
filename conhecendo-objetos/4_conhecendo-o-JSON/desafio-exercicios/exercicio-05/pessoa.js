@@ -11,3 +11,6 @@ function copiarObjetoJson (objeto) {
 const pessoaCopia = copiarObjetoJson(pessoaOriginal);
 
 pessoaCopia.nome = 'BRKsEDU';
+
+console.log(pessoaOriginal);
+console.log(pessoaCopia);
