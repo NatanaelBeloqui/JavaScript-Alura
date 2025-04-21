@@ -17,6 +17,9 @@ fs.readFile(link, 'utf-8', (erro, texto) => {
 //     'computador': 4
 // }
 
+// Expressão regular
+// /[.,\/#!$%\^&\*;:{}=\-_`~()]/g
+
 function quebraEmParagrafos (texto) {
     const paragrafos = texto.toLowerCase().split('\n'); // Transforma o texto em uma array de string, só que por parágrafo
     const contagem = paragrafos.map((paragrafo) => {
@@ -25,12 +28,19 @@ function quebraEmParagrafos (texto) {
     console.log(contagem);
 }
 
+function limpaPalavras(palavra) {
+    return palavra.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
+  }
+
 function verificarPalavrasDuplicadas (texto) {
     const listaPalavras = texto.split(' '); // Transforma o texto em uma array de string
     const resultado = {};
     // objeto[propriedade] = valor;
     listaPalavras.forEach((palavra) => {
-        resultado[palavra] = (resultado[palavra] || 0) + 1;
+        if (palavra.length >= 3) {
+            const palavraLimpa = limpaPalavras(palavra);
+            resultado[palavraLimpa] = (resultado[palavraLimpa] || 0) + 1;
+        }
     });
     return resultado;
 }
