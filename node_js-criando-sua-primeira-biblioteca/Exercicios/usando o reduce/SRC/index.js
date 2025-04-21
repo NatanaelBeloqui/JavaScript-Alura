@@ -22,10 +22,16 @@ fs.readFile(link, 'utf-8', (erro, texto) => {
 
 function quebraEmParagrafos (texto) {
     const paragrafos = texto.toLowerCase().split('\n'); // Transforma o texto em uma array de string, só que por parágrafo
-    const contagem = paragrafos.flatMap((paragrafo) => {
-        if (!paragrafo) return [];
-        return verificarPalavrasDuplicadas(paragrafo);
-    })
+    // const contagem = paragrafos.flatMap((paragrafo) => {
+    //     if (!paragrafo) return [];
+    //     return verificarPalavrasDuplicadas(paragrafo);
+    // });
+    const contagem = paragrafos.reduce((acum, paragrafo) => {
+        if (paragrafo) {
+            return [...acum, paragrafo];
+        }
+        return acum;
+    }, []);
     console.log(contagem);
 }
 
