@@ -22,7 +22,8 @@ fs.readFile(link, 'utf-8', (erro, texto) => {
 
 function quebraEmParagrafos (texto) {
     const paragrafos = texto.toLowerCase().split('\n'); // Transforma o texto em uma array de string, só que por parágrafo
-    const contagem = paragrafos.map((paragrafo) => {
+    const contagem = paragrafos.flatMap((paragrafo) => {
+        if (!paragrafo) return [];
         return verificarPalavrasDuplicadas(paragrafo);
     })
     console.log(contagem);
@@ -30,7 +31,7 @@ function quebraEmParagrafos (texto) {
 
 function limpaPalavras(palavra) {
     return palavra.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
-  }
+}
 
 function verificarPalavrasDuplicadas (texto) {
     const listaPalavras = texto.split(' '); // Transforma o texto em uma array de string
