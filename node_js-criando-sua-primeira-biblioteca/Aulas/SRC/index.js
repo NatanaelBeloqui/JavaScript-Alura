@@ -1,17 +1,16 @@
-// Expressão regular
-// /[.,\/#!$%\^&\*;:{}=\-_`~()]/g
-
 const fs = require('fs'); // File System
+const trataErros = require('./erros/funcoesErro');
 
 const caminhoArquivo = process.argv; // Captura os argumentos passados na linha de comando ao executar o script
 const link = caminhoArquivo[2]; // "arquivos/texto.txt"
 
 fs.readFile(link, 'utf-8', (erro, texto) => {
-    if (erro) {
-        console.log('Qual é o erro? ', erro.code);
-        return
+    try {
+        if (erro) throw erro;
+        contaPalavras (texto);
+    } catch (erro) {
+        trataErros(erro);
     }
-    contaPalavras (texto);
 });
 
 function contaPalavras (texto) {
