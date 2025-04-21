@@ -4,8 +4,9 @@ const caminhoArquivo = process.argv; // Captura os argumentos passados na linha 
 const link = caminhoArquivo[2]; // "arquivos/texto.txt"
 
 fs.readFile(link, 'utf-8', (erro, texto) => {
-    verificarPalavrasDuplicadas(texto);
-})
+    quebraEmParagrafos(texto);
+    // verificarPalavrasDuplicadas(texto);
+});
 
 // criar um arrau com as palavras
 // contar as ocorrências
@@ -16,12 +17,20 @@ fs.readFile(link, 'utf-8', (erro, texto) => {
 //     'computador': 4
 // }
 
+function quebraEmParagrafos (texto) {
+    const paragrafos = texto.toLowerCase().split('\n'); // Transforma o texto em uma array de string, só que por parágrafo
+    const contagem = paragrafos.map((paragrafo) => {
+        return verificarPalavrasDuplicadas(paragrafo);
+    })
+    console.log(contagem);
+}
+
 function verificarPalavrasDuplicadas (texto) {
-    const listaPalavras = texto.split(' ');
+    const listaPalavras = texto.split(' '); // Transforma o texto em uma array de string
     const resultado = {};
     // objeto[propriedade] = valor;
-    listaPalavras.forEach(palavra => {
+    listaPalavras.forEach((palavra) => {
         resultado[palavra] = (resultado[palavra] || 0) + 1;
     });
-    console.log(resultado);
+    return resultado;
 }
