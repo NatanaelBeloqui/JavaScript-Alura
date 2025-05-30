@@ -26,7 +26,11 @@ const gato = {
     }
 }
 
-Objetos literais: São objetos únicos. No geral, não são muito utilizados por não serem viáveies.
+Objetos literais: São objetos ÚNICOS. No geral, não são muito utilizados por não serem viáveies.
+
+Um objeto literal é “único” no sentido de que guarda dados específicos, já definidos
+(por exemplo, os dados de um produto) e não pode ser utilizado como classe para a
+criação de outros objetos a partir dele.
 
 Estrutura melhorada para ser reutilizada:
 
