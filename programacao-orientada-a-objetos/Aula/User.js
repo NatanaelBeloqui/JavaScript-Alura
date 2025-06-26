@@ -1,4 +1,3 @@
-
 export default class User {
     constructor(nome, email, nascimento, role, ativo = true) {
         this.nome = nome
@@ -9,8 +8,8 @@ export default class User {
     }
 
     exibirInfos() {
-        return `${this.nome}, ${this.email}`
+        return `${this.nome}, ${this.email}`;
     }
 }
 
-const novoUser = new User('Juliana', 'j@j.com', '2024-01-01')
+const novoUser = new User('Juliana', 'j@j.com', '2024-01-01');
