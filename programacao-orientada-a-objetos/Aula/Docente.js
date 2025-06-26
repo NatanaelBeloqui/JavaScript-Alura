@@ -9,5 +9,3 @@ export default class Docente extends User {
         return `Estudante ${estudante} passou no curso de ${curso}, responsável ${this.nome}.`
     }
 }
-
-const novaDocente = new Docente('Ana', 'a@a.com', '2024-01-01')

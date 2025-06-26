@@ -9,5 +9,3 @@ export default class Admin extends User {
         return `Curso ${nomeCurso} criado com ${qtdVagas} vagas.`
     }
 }
-
-const novoAdmin = new Admin('Rodrigo', 'r@r.com', '2024-01-01')
